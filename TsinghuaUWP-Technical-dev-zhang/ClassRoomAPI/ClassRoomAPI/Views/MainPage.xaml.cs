@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using ClassRoomAPI.Services;
+using ClassRoomAPI.Models;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
@@ -29,6 +30,8 @@ namespace ClassRoomAPI
         public MainPage()
         {
             this.InitializeComponent();
+            //需要考虑没网的情况
+            
         }
 
         private async void HHH_Click(object sender, RoutedEventArgs e)
@@ -46,7 +49,32 @@ namespace ClassRoomAPI
 
         private void GetHallList_Click(object sender, RoutedEventArgs e)
         {
-            PerformanceListView.ItemsSource = ClassRoomAPIService.Performance.GetListShow();
+            
+        }
+
+        private void NextPage_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void FrontPage_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ComboBox_SortOfTimeChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SortOfStatusChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SortOfPlaceChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

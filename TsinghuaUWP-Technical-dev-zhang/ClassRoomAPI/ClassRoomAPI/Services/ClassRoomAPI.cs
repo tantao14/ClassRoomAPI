@@ -13,84 +13,6 @@ namespace ClassRoomAPI.Services
 {
     public class ClassRoomAPIService
     {
-        //class ClassRoom
-        //{
-        //    public static List<ClassRoomData> GetClassNames()
-        //    {
-
-        //        string html = "http://jxgl.cic.tsinghua.edu.cn/jxpg/f/wxjwxs/jsxx?menu=false";
-        //        HtmlWeb web = new HtmlWeb();
-        //        var htmlDoc = web.Load(html);
-        //        var htmlNodes = htmlDoc.DocumentNode.SelectNodes("//html/body/div/div/div[@class='list-block list-class']/div/ul/li");
-
-        //        var Data = new List<ClassRoomData>();
-        //        for (int i = 1; i < htmlNodes.Count; i++)
-        //        {
-        //            string uri = htmlNodes[i].ChildNodes[1].Attributes["href"].Value;
-        //            string PosName = htmlNodes[i].ChildNodes[1].ChildNodes[1].ChildNodes[1].ChildNodes[1].InnerText;
-        //            Data.Add(new ClassRoomData
-        //            {
-        //                DetailUri = uri,
-        //                PositionName = PosName
-        //            }
-        //            );
-        //        }
-        //        return Data;
-        //    }
-
-        //}
-
-        public static class Performance
-        {
-            
-            public static List<PerformanceData> GetListShow()
-            {
-                
-                //string html = ("http://www.hall.tsinghua.edu.cn/columnEx/pwzx_hdap/yc-dy-px-zl-jz/" + PerformanceData.page.ToString());
-                string html = ("http://www.hall.tsinghua.edu.cn/columnEx/pwzx_hdap/yc-dy-px-zl-jz/1");
-                HtmlWeb web = new HtmlWeb();
-                var htmlDoc = web.Load(html);
-                var htmlNodes = htmlDoc.DocumentNode.SelectNodes("/html/body/div[2]/div/div[2]/div/div");//timelist
-                var InnerTest = htmlNodes[0].InnerHtml;
-                Regex.Replace(InnerTest, "::after", "");//Remove after using System.Text.RegularExpressions;
-                var doc = new HtmlDocument();
-                doc.LoadHtml(InnerTest);
-                var ListNodes = doc.DocumentNode.SelectNodes("/div");
-                //ParseDataHere
-                //int j = ListNodes.Count;
-
-                var Data = new List<PerformanceData>();
-                for (int i = 1; i < ListNodes.Count; i++)
-                {
-                    string PerDay = ListNodes[i].ChildNodes[1].ChildNodes[3].ChildNodes[1].ChildNodes[0].InnerText; //演出的日
-                    string PerDate = ListNodes[i].ChildNodes[1].ChildNodes[3].ChildNodes[1].ChildNodes[1].InnerText; //演出的年/月
-                    string PerHour = ListNodes[i].ChildNodes[1].ChildNodes[3].ChildNodes[1].ChildNodes[3].InnerText;//演出在几点
-                    PerHour = PerHour.Replace(" ", "");
-                    string PerTime = PerDate + "-" + PerDay + "    " + PerHour;
-                    PerTime = PerTime.Replace("\r", "");
-                    PerTime = PerTime.Replace("\n", "");
-                    PerTime = PerTime.Replace("\t", "");
-                    string PerName = ListNodes[i].ChildNodes[1].ChildNodes[5].ChildNodes[1].InnerText;
-                    string PerAddress = ListNodes[i].ChildNodes[1].ChildNodes[5].ChildNodes[5].InnerText;
-                    string PerState = ListNodes[i].ChildNodes[1].ChildNodes[5].ChildNodes[7].InnerText;
-                    PerState = PerState.Replace("\r", "");
-                    PerState = PerState.Replace("\n", "");
-                    PerState = PerState.Replace("\t", "");
-                    Data.Add(new PerformanceData
-                    {
-                        PerformanceTime = PerTime,
-                        PerformanceName = PerName,
-                        PerformanceAddress = PerAddress,
-                        PerformanceState = PerState
-                    }
-                    );
-                }
-                return Data;
-            }
-        }
-
-
-
         private static DateTime lastLogin = DateTime.MinValue;
         private static int LOGIN_TIMEOUT_MINUTES = 1;
 
@@ -174,12 +96,7 @@ namespace ClassRoomAPI.Services
                     var ReturnData = JSONHelper.Parse<List<ClassBuildingData>>(TempData);
                     lastLogin = DateTime.MinValue;
                     return ReturnData;
-                }
-
-               
-
-
-                
+                } 
             }
 
         }

@@ -101,9 +101,14 @@
     <Compile Include="Helpers\JSONHelper.cs" />
     <Compile Include="Helpers\PostGetHelper.cs" />
     <Compile Include="Models\ClassRoomInfoModels.cs" />
+    <Compile Include="Models\PerformanceInfoModel.cs" />
     <Compile Include="Services\ClassRoomAPI.cs" />
+    <Compile Include="Services\PerformanceAPI.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PerformancePage.xaml.cs">
+      <DependentUpon>PerformancePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -140,6 +145,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Views\BlankPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PerformancePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

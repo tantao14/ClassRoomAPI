@@ -35,8 +35,17 @@ namespace ClassRoomAPI
                 new NavMenuItem()
                 {
                     FontFamily = new FontFamily("Segoe MDL2 Assets"),
-                    Icon = "\xE80F",
-                    Label = "TOPIC1",
+                    Icon = "\xE10F",
+                    Label = "News",
+                    Selected = Visibility.Visible,
+                    DestPage = typeof(News)
+                },
+
+                new NavMenuItem()
+                {
+                    FontFamily = new FontFamily("Segoe MDL2 Assets"),
+                    Icon = "\xE771",
+                    Label = "LearnWeb",
                     Selected = Visibility.Visible,
                     DestPage = typeof(MainPage)
                 },
@@ -44,12 +53,40 @@ namespace ClassRoomAPI
                 new NavMenuItem()
                 {
                     FontFamily = new FontFamily("Segoe MDL2 Assets"),
-                    Icon = "\xE771",
-                    Label = "TOPIC2",
+                    Icon = "\xEC06",
+                    Label = "ClassRoom",
                     Selected = Visibility.Visible,
-                    DestPage = typeof(News)
+                    DestPage = typeof(MainPage)
                 },
 
+                new NavMenuItem()
+                {
+                    FontFamily = new FontFamily("Segoe MDL2 Assets"),
+                    Icon = "\xE825",
+                    Label = "Hall",
+                    Selected = Visibility.Visible,
+                    DestPage = typeof(HallInfo)
+                },
+
+                new NavMenuItem()
+                {
+                    FontFamily = new FontFamily("Segoe MDL2 Assets"),
+                    Icon = "\xE715",
+                    Label = "Mail",
+                    Selected = Visibility.Visible,
+                    DestPage = typeof(MainPage)
+                },
+
+                new NavMenuItem()
+                {
+                    FontFamily = new FontFamily("Segoe MDL2 Assets"),
+                    Icon = "\xE7F4",
+                    Label = "IPTV",
+                    Selected = Visibility.Visible,
+                    DestPage = typeof(MainPage)
+                },
+
+                //邮件 xE715 学堂 xE7BE 演出 xE825 IPTV xE7F4 
             });
 
         private static List<NavMenuItem> navMenuSecondaryItem = new List<NavMenuItem>(

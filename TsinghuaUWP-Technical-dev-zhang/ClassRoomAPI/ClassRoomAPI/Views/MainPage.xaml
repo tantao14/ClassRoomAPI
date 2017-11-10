@@ -65,8 +65,8 @@
                            Margin="2,0,0,0"
                              />
                 </StackPanel>
-                
-                
+
+
             </Grid>
         </DataTemplate >
 
@@ -74,7 +74,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition   Width="1*" />
-                    <ColumnDefinition   Width="3*" />
+                    <ColumnDefinition   Width="400" />
                     <ColumnDefinition   Width="1*" />
                     <ColumnDefinition   Width="1*" />
                 </Grid.ColumnDefinitions>
@@ -85,6 +85,7 @@
                              TextWrapping="Wrap"
                                ScrollViewer.HorizontalScrollMode="Enabled"
                                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                           
                              />
 
 
@@ -94,6 +95,7 @@
                              TextWrapping="Wrap"
                            Grid.Column="1"
                            Margin="24,0,20,0"
+                    
                              />
                 <TextBlock Text="{x:Bind PerformanceState}"  
                            FontSize="18"
@@ -107,16 +109,30 @@
                            Foreground="Black"
                              TextWrapping="Wrap"
                            Grid.Column="3"
-                           Margin="24,0,20,0"
+                           HorizontalAlignment="Right"
                              />
             </Grid>
         </DataTemplate>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Pivot Title="教室信息">
+            <PivotItem Header="一教">
 
-        <Pivot Title="Information Hub">
-            <PivotItem Header="Classroom Information">
+            </PivotItem>
+            <PivotItem Header="二教">
+
+            </PivotItem>
+            <PivotItem Header="三教">
+
+            </PivotItem>
+            <PivotItem Header="四教">
+
+            </PivotItem>
+            <PivotItem Header="五教">
+
+            </PivotItem>
+            <PivotItem Header="六教">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -135,27 +151,7 @@
                     </ListView>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="Hall Information">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <StackPanel>
-                        <Button Name="GetHallList" Content="Click To Get Hall Lists" Height="50" Width="300" Click="GetHallList_Click" FontSize="18" Grid.Row="0" ></Button>
-                    </StackPanel>
-
-
-                    <ListView Name="PerformanceListView" 
-                      Grid.Row="1"                    
-                      ItemTemplate="{StaticResource PerformanceDataTemplate}" 
-                      >
-
-                    </ListView>
-                </Grid>
-            </PivotItem>
+            
         </Pivot>
-        
-        
     </Grid>
 </Page>

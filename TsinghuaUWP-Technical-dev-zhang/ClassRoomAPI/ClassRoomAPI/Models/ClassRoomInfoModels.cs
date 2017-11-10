@@ -6,14 +6,6 @@ using System.Threading.Tasks;
 
 namespace ClassRoomAPI.Models
 {
-    public class PerformanceData
-    {
-        public string PerformanceName;
-        public string PerformanceTime;
-        public string PerformanceAddress;
-        public string PerformanceState;
-        public static int page;
-    }
     public class ClassBuildingData
     {
         public string BuildingName;
