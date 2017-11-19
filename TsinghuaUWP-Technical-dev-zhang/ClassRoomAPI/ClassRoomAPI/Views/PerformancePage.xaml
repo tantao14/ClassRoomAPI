@@ -53,12 +53,13 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot x:Name="PerformanceInfo"  Title="Information Hub" SelectionChanged="PerformanceInfo_SelectionChanged" >
+        <Pivot x:Name="PerformanceInfo"  Title="新清华演出" SelectionChanged="PerformanceInfo_SelectionChanged" >
+            
             <PivotItem Header="演出">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />    
                         <RowDefinition Height="*" />
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>

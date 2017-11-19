@@ -52,7 +52,7 @@ namespace ClassRoomAPI.Views
             //ComboBoxItem item = Time.SelectedItem as ComboBoxItem;
             //if (item != null) { string content = item.Content.ToString(); }
             //int i = 0;
-            var j = Time1.SelectedIndex;
+            //var j = Time1.SelectedIndex;
 
         }
 

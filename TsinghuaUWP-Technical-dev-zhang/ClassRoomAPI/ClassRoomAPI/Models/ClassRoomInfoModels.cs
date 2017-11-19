@@ -14,5 +14,7 @@ namespace ClassRoomAPI.Models
 
         //6节课1-6
         public List<string> ListClassStatus;
+        public static int BuildingSelected;
+        public static bool HasChanged = false;
     }
 }

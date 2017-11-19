@@ -37,43 +37,57 @@ namespace ClassRoomAPI
         private async void HHH_Click(object sender, RoutedEventArgs e)
         {
             var Data=await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
-            NavMenuPrimaryListView.ItemsSource = Data; 
+            Building_6ListView.ItemsSource = Data; 
 
         }
 
         public async void TempRefreshDataCortana()
         {
             var Data = await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
-            NavMenuPrimaryListView.ItemsSource = Data;
+            Building_6ListView.ItemsSource = Data;
         }
 
-        private void GetHallList_Click(object sender, RoutedEventArgs e)
+        private async void ClassRoomInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-        }
-
-        private void NextPage_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void FrontPage_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void ComboBox_SortOfTimeChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SortOfStatusChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SortOfPlaceChanged(object sender, SelectionChangedEventArgs e)
-        {
+            ClassBuildingData.BuildingSelected = ClassRoomInfo.SelectedIndex + 1;
+            ClassBuildingData.HasChanged = true;
+            if (ClassBuildingData.BuildingSelected == 1)
+            {
+                
+                var Data = await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
+                Building_1ListView.ItemsSource = Data;
+                //Building_1ListView.ItemsSource = ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
+            }
+            if (ClassBuildingData.BuildingSelected == 2)
+            {
+                
+                var Data = await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
+                Building_2ListView.ItemsSource = Data;
+            }
+            if (ClassBuildingData.BuildingSelected == 3)
+            {
+                
+                var Data = await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
+                Building_3ListView.ItemsSource = Data;
+            }
+            if (ClassBuildingData.BuildingSelected == 4)
+            {
+               
+                var Data = await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
+                Building_4ListView.ItemsSource = Data;
+            }
+            if (ClassBuildingData.BuildingSelected == 5)
+            {
+                
+                var Data = await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
+                Building_5ListView.ItemsSource = Data;
+            }
+            if (ClassBuildingData.BuildingSelected == 6)
+            {
+               
+                var Data = await ClassRoomAPIService.ParseBuildingClassData.GetListBuildingInfoAsync();
+                Building_6ListView.ItemsSource = Data;
+            }
 
         }
     }

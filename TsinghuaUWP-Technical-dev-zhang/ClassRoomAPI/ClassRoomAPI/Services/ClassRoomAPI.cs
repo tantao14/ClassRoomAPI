@@ -21,23 +21,30 @@ namespace ClassRoomAPI.Services
            
             public static async Task<List<ClassBuildingData>> GetListBuildingInfoAsync()
             {
-                if ((DateTime.Now - lastLogin).TotalMinutes < LOGIN_TIMEOUT_MINUTES)
-                {
-                    Debug.WriteLine("[login] reuses recent session");
-                    var TempData = await CacheHelper.ReadCache("ClassBuildingData");
-                    var ReturnData = JSONHelper.Parse<List<ClassBuildingData>>(TempData);
-                    lastLogin = DateTime.Now;
-                    return ReturnData;
+                //if ((DateTime.Now - lastLogin).TotalMinutes < LOGIN_TIMEOUT_MINUTES)
+                //{
+                //    Debug.WriteLine("[login] reuses recent session");
+                //    var TempData = await CacheHelper.ReadCache("ClassBuildingData");
+                //    var ReturnData = JSONHelper.Parse<List<ClassBuildingData>>(TempData);
+                //    lastLogin = DateTime.Now;
+                //    return ReturnData;
 
-                }
-                else
-                {
-                    lastLogin = DateTime.Now;
-                }
+                //}
+                //else
+                //{
+                //    lastLogin = DateTime.Now;
+                //}
 
-                try
-                {
-                    string html = "http://jxgl.cic.tsinghua.edu.cn/jxpg/f/wxjwxs/jsxx/cx?classroom=六教&weeknumber=5&mobile=true";
+                //try
+                //{
+                    string url = "";
+                    if (ClassBuildingData.BuildingSelected == 1) url = "一教";
+                    if (ClassBuildingData.BuildingSelected == 2) url = "二教";
+                    if (ClassBuildingData.BuildingSelected == 3) url = "三教";
+                    if (ClassBuildingData.BuildingSelected == 4) url = "四教";
+                    if (ClassBuildingData.BuildingSelected == 5) url = "五教";
+                    if (ClassBuildingData.BuildingSelected == 6) url = "六教";
+                    string html = "http://jxgl.cic.tsinghua.edu.cn/jxpg/f/wxjwxs/jsxx/cx?classroom=" + url + "&weeknumber=9&mobile=true";
                     HtmlWeb web = new HtmlWeb();
                     var htmlDoc = web.Load(html);
 
@@ -65,12 +72,12 @@ namespace ClassRoomAPI.Services
                             var StatueOfClassRoom = _NodeClassState[j].Attributes["class"].Value;
                             if (Regex.IsMatch(StatueOfClassRoom, "ico_zy"))//占用
                             {
-                                string item = "占用";
+                                string item = "\xEDAF";
                                 _ListClassState.Add(item);
                             }
                             else
                             {
-                                string item = "空闲";
+                                string item = "\xECCA";
                                 _ListClassState.Add(item);
                             }
 
@@ -89,14 +96,14 @@ namespace ClassRoomAPI.Services
                     var StringfiedData = JSONHelper.Stringify(Data);
                     await CacheHelper.WriteCache("ClassBuildingData", StringfiedData);
                     return Data;
-                }
-                catch
-                {
-                    var TempData = await CacheHelper.ReadCache("ClassBuildingData");
-                    var ReturnData = JSONHelper.Parse<List<ClassBuildingData>>(TempData);
-                    lastLogin = DateTime.MinValue;
-                    return ReturnData;
-                } 
+                //}
+                //catch
+                //{
+                //    var TempData = await CacheHelper.ReadCache("ClassBuildingData");
+                //    var ReturnData = JSONHelper.Parse<List<ClassBuildingData>>(TempData);
+                //    lastLogin = DateTime.MinValue;
+                //    return ReturnData;
+                //} 
             }
 
         }

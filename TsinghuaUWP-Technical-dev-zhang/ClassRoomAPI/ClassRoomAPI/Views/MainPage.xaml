@@ -27,8 +27,14 @@
                            Grid.Column="1"
                            Margin="24,0,20,0"
                              />
-                <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
-                    <TextBlock Text="{x:Bind ListClassStatus[0]}"  
+                 <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
+                    <Button FontFamily="Segoe MDL2 Assets" Content="{x:Bind ListClassStatus[0]}"/>
+                    <Button FontFamily="Segoe MDL2 Assets" Content="{x:Bind ListClassStatus[1]}"/>
+                    <Button FontFamily="Segoe MDL2 Assets" Content="{x:Bind ListClassStatus[2]}"/>
+                    <Button FontFamily="Segoe MDL2 Assets" Content="{x:Bind ListClassStatus[3]}"/>
+                    <Button FontFamily="Segoe MDL2 Assets" Content="{x:Bind ListClassStatus[4]}"/>
+                    <Button FontFamily="Segoe MDL2 Assets" Content="{x:Bind ListClassStatus[5]}"/>
+                    <!--<TextBlock Text="{x:Bind ListClassStatus[0]}"  
                            FontSize="18"
                            Foreground="Black"
                              TextWrapping="Wrap"
@@ -63,7 +69,7 @@
                            Foreground="Black"
                              TextWrapping="Wrap"
                            Margin="2,0,0,0"
-                             />
+                             />-->
                 </StackPanel>
 
 
@@ -116,21 +122,86 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot Title="教室信息">
+        <Pivot x:Name="ClassRoomInfo" Title="教室信息" SelectionChanged="ClassRoomInfo_SelectionChanged"   >
             <PivotItem Header="一教">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
 
+
+                    <ListView Name="Building_1ListView" 
+                      Grid.Row="1"                    
+                      ItemTemplate="{StaticResource DataTemplate}" 
+                      >
+                    </ListView>
+                </Grid>
             </PivotItem>
             <PivotItem Header="二教">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
+
+
+                    <ListView Name="Building_2ListView" 
+                      Grid.Row="1"                    
+                      ItemTemplate="{StaticResource DataTemplate}" 
+                      >
+                    </ListView>
+                </Grid>
             </PivotItem>
             <PivotItem Header="三教">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
+
+
+                    <ListView Name="Building_3ListView" 
+                      Grid.Row="1"                    
+                      ItemTemplate="{StaticResource DataTemplate}" 
+                      >
+                    </ListView>
+                </Grid>
             </PivotItem>
             <PivotItem Header="四教">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
+
+
+                    <ListView Name="Building_4ListView" 
+                      Grid.Row="1"                    
+                      ItemTemplate="{StaticResource DataTemplate}" 
+                      >
+                    </ListView>
+                </Grid>
             </PivotItem>
             <PivotItem Header="五教">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
+
+
+                    <ListView Name="Building_5ListView" 
+                      Grid.Row="1"                    
+                      ItemTemplate="{StaticResource DataTemplate}" 
+                      >
+                    </ListView>
+                </Grid>
             </PivotItem>
             <PivotItem Header="六教">
                 <Grid>
@@ -138,16 +209,15 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <StackPanel>
+                    <!--<StackPanel>
                         <Button Name="HHH" Content="Click To Get Building Names" Height="50" Width="300" Click="HHH_Click" FontSize="18" Grid.Row="0" ></Button>
-                    </StackPanel>
+                    </StackPanel>-->
 
 
-                    <ListView Name="NavMenuPrimaryListView" 
+                    <ListView Name="Building_6ListView" 
                       Grid.Row="1"                    
                       ItemTemplate="{StaticResource DataTemplate}" 
                       >
-
                     </ListView>
                 </Grid>
             </PivotItem>
